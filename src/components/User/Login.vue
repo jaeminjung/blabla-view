@@ -76,7 +76,8 @@
 <script>
 import Joi from 'joi'
 
-const LOGIN_URL = 'http://localhost:5000/auth/login'
+// const LOGIN_URL = 'http://localhost:5000/auth/login'
+const LOGIN_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000/auth/login' : 'http://13.125.21.48:5000/auth/login'
 
 const schema = Joi.object().keys({
     username: Joi.string().regex(/(^[a-zA-Z0-9_]+$)/).min(2).max(20).required(),

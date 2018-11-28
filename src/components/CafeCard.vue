@@ -494,7 +494,7 @@ export default {
       var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
       var d = R * c * 1000; // Distance in m
       
-      if (d < 500) {
+      if (d < 100) { // 몇 m 내에있는지 조정
         return true
       } else { return false }
       

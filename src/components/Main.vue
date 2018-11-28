@@ -63,7 +63,8 @@
 
 <script>
 import CafeCard from './CafeCard'
-const API_URL = 'http://localhost:5000/'
+
+const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000/' : 'http://13.125.21.48:5000/'
 
 export default {
   name: 'Main',
@@ -194,7 +195,7 @@ export default {
     getCafesMyMap: function () {
       console.log("getCafesMyMap function")
       this.cafeData = []
-      fetch(this.myMapCafes_API_URL, {
+      fetch(`${API_URL}post/myMapCafes`, {
           method: 'POST',
           body: JSON.stringify(this.map_rect),
           headers: { 'content-type':'application/json' }
